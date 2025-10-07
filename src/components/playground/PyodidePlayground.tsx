@@ -3,7 +3,8 @@
 import { useEffect, useState, useTransition, useRef } from "react";
 import type { Pyodide, PyProxy } from "@/types/pyodide";
 import { exercises } from "@/lib/exercises.json";
-import { explainCode, type ExplainCodeInput, type ExplainCodeOutput } from "@/ai/flows/explain-code-flow";
+import { explainCodeAction } from "@/app/actions";
+import type { ExplainCodeInput, ExplainCodeOutput } from "@/ai/flows/explain-code-flow";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -146,14 +147,15 @@ export default function PyodidePlayground() {
     setOutput(null);
     setShowHint(false);
     try {
-        const result = await explainCode({ code });
-        setOutput({ type: 'info', message: result.explanation });
+        const result = await explainCodeAction({ code });
+        if (result.success) {
+            setOutput({ type: 'info', message: result.explanation! });
+        } else {
+            setOutput({ type: 'error', message: result.error! });
+        }
     } catch (error: any) {
         console.error(error);
-        const errorMessage = error.message && error.message.toLowerCase().includes('api key') 
-            ? 'La clave de API de Gemini no es válida o no se ha configurado. Asegúrate de añadirla como variable de entorno `GEMINI_API_KEY` en tu proyecto de Vercel y en un archivo .env.local para desarrollo.'
-            : 'Ha ocurrido un error al contactar con la IA. Por favor, inténtalo de nuevo más tarde.';
-        setOutput({ type: 'error', message: errorMessage });
+        setOutput({ type: 'error', message: 'Ha ocurrido un error inesperado al conectar con el servidor.' });
     } finally {
         setIsExplaining(false);
     }
