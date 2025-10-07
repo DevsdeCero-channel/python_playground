@@ -150,8 +150,8 @@ export default function PyodidePlayground() {
         setOutput({ type: 'info', message: result.explanation });
     } catch (error: any) {
         console.error(error);
-        const errorMessage = error.message && error.message.includes('API key') 
-            ? 'La clave de API de Gemini no es válida o no se ha configurado. Asegúrate de añadirla como variable de entorno `GEMINI_API_KEY` en tu proyecto.'
+        const errorMessage = error.message && error.message.toLowerCase().includes('api key') 
+            ? 'La clave de API de Gemini no es válida o no se ha configurado. Asegúrate de añadirla como variable de entorno `GEMINI_API_KEY` en tu proyecto de Vercel y en un archivo .env.local para desarrollo.'
             : 'Ha ocurrido un error al contactar con la IA. Por favor, inténtalo de nuevo más tarde.';
         setOutput({ type: 'error', message: errorMessage });
     } finally {
