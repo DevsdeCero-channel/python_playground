@@ -1,0 +1,58 @@
+{
+  "exercises": [
+    {
+      "id": "asignacion_variables",
+      "title": "Asignación de Variables",
+      "description": "El objetivo de este ejercicio es familiarizarse con la asignación de variables. Declara dos variables: `nombre` (de tipo string) y `edad` (de tipo entero).",
+      "defaultCode": "# Asigna tu nombre a la variable 'nombre'\n\n\n# Asigna tu edad a la variable 'edad'\n\n",
+      "testHarness": "\ndef correr_tests():\n  try:\n    assert 'nombre' in globals(), \"La variable 'nombre' no está definida. ¡Asegúrate de haberla escrito!\"\n    assert 'edad' in globals(), \"La variable 'edad' no está definida. ¡Asegúrate de haberla escrito!\"\n    assert isinstance(nombre, str) and nombre != \"\", \"La variable 'nombre' debe ser un texto (string) y no puede estar vacía. Por ejemplo: nombre = \\\"Ana\\\"\"\n    assert isinstance(edad, int) and edad > 0, \"La variable 'edad' debe ser un número entero y positivo. Por ejemplo: edad = 25\"\n    return \"✅ ¡Todos los tests pasaron exitosamente! Has asignado las variables correctamente.\"\n  except NameError as e:\n    return f\"❌ Error: Parece que una variable no está definida: {e}\"\n  except AssertionError as e:\n    return f\"❌ {str(e)}\"\n  except Exception as e:\n    return f\"❌ Error inesperado durante la ejecución de los tests: {str(e)}\"\n\ncorrer_tests()\n",
+      "hint": "Recuerda que para asignar una variable, se utiliza el signo igual (=). El texto (o 'string') debe ir entre comillas. Por ejemplo: `mi_variable = \"Hola\"`.",
+      "solution": "nombre = \"Ana\"\nedad = 25"
+    },
+    {
+      "id": "operadores_aritmeticos",
+      "title": "Operadores Aritméticos",
+      "description": "Usa operadores aritméticos para calcular el área de un rectángulo. Tienes dos variables, `base` y `altura`. El resultado debe guardarse en una nueva variable llamada `area`.",
+      "defaultCode": "# Tenemos la base y la altura de un rectángulo\nbase = 10\naltura = 5\n\n# Calcula el área y guárdala en una variable llamada 'area'\n\n",
+      "testHarness": "\ndef correr_tests():\n  try:\n    assert 'area' in globals(), \"La variable 'area' no está definida.\"\n    assert area == 50, f\"El cálculo es incorrecto. Se esperaba 50 pero se obtuvo {area}. Revisa tu fórmula.\"\n    return \"✅ ¡Excelente! Has calculado el área correctamente.\"\n  except NameError as e:\n    return f\"❌ Error: Parece que una variable no está definida: {e}\"\n  except AssertionError as e:\n    return f\"❌ {str(e)}\"\n  except Exception as e:\n    return f\"❌ Error inesperado: {str(e)}\"\n\ncorrer_tests()\n",
+      "hint": "El área de un rectángulo se calcula multiplicando la base por la altura. En Python, el operador de multiplicación es el asterisco `*`.",
+      "solution": "base = 10\naltura = 5\narea = base * altura"
+    },
+    {
+      "id": "operadores_comparacion",
+      "title": "Operadores de Comparación y Booleanos",
+      "description": "Comprueba si un número es mayor de edad. Dada una variable `edad_persona`, crea una variable booleana `es_mayor_de_edad` que sea `True` si la edad es 18 o más, y `False` en caso contrario.",
+      "defaultCode": "# Edad de la persona\nedad_persona = 21\n\n# Crea la variable 'es_mayor_de_edad' con el resultado de la comparación\n\n",
+      "testHarness": "\ndef correr_tests():\n  try:\n    assert 'es_mayor_de_edad' in globals(), \"La variable 'es_mayor_de_edad' no está definida.\"\n    assert isinstance(es_mayor_de_edad, bool), \"La variable 'es_mayor_de_edad' debe ser un booleano (True o False).\"\n    assert es_mayor_de_edad == (edad_persona >= 18), f\"El valor de 'es_mayor_de_edad' es incorrecto. Para una edad de {edad_persona}, debería ser {edad_persona >= 18}.\"\n    return \"✅ ¡Correcto! Sabes cómo usar los operadores de comparación.\"\n  except NameError as e:\n    return f\"❌ Error: Parece que una variable no está definida: {e}\"\n  except AssertionError as e:\n    return f\"❌ {str(e)}\"\n  except Exception as e:\n    return f\"❌ Error inesperado: {str(e)}\"\n\ncorrer_tests()\n",
+      "hint": "Puedes comparar si un número es mayor o igual que otro usando el operador `>=`. El resultado de esta comparación será `True` o `False`.",
+      "solution": "edad_persona = 21\nes_mayor_de_edad = edad_persona >= 18"
+    },
+    {
+      "id": "condicionales_if",
+      "title": "Condicionales (if-else)",
+      "description": "Basado en la variable `temperatura`, decide qué mensaje mostrar. Si la temperatura es mayor a 25, asigna el texto \"Hace calor\" a la variable `clima`. De lo contrario, asigna \"No hace calor\".",
+      "defaultCode": "# Temperatura actual\ntemperatura = 30\n\n# Usa un if-else para asignar el valor a la variable 'clima'\n\n",
+      "testHarness": "\ndef correr_tests():\n  try:\n    assert 'clima' in globals(), \"La variable 'clima' no está definida.\"\n    expected = \"Hace calor\" if temperatura > 25 else \"No hace calor\"\n    assert clima == expected, f\"El valor de 'clima' es incorrecto. Se esperaba '{expected}' pero se obtuvo '{clima}'.\"\n    return \"✅ ¡Muy bien! Has dominado los condicionales.\"\n  except NameError as e:\n    return f\"❌ Error: Parece que una variable no está definida: {e}\"\n  except AssertionError as e:\n    return f\"❌ {str(e)}\"\n  except Exception as e:\n    return f\"❌ Error inesperado: {str(e)}\"\n\ncorrer_tests()\n",
+      "hint": "La estructura de un condicional es `if condicion: ... else: ...`. No olvides los dos puntos `:` después de la condición y del `else`.",
+      "solution": "temperatura = 30\nif temperatura > 25:\n  clima = \"Hace calor\"\nelse:\n  clima = \"No hace calor\""
+    },
+    {
+      "id": "bucle_for_range",
+      "title": "Bucle 'for' con 'range()'",
+      "description": "Usa un bucle `for` y la función `range()` para calcular la suma de los primeros 5 números enteros (0 a 4). Guarda el resultado en la variable `suma_total`.",
+      "defaultCode": "# Inicializa la variable donde guardarás la suma\nsuma_total = 0\n\n# Escribe tu bucle for aquí\n\n",
+      "testHarness": "\ndef correr_tests():\n  try:\n    assert 'suma_total' in globals(), \"La variable 'suma_total' no está definida.\"\n    assert suma_total == 10, f\"El cálculo es incorrecto. La suma de 0+1+2+3+4 es 10, pero tu resultado es {suma_total}.\"\n    return \"✅ ¡Genial! Los bucles 'for' ya no tienen secretos para ti.\"\n  except AssertionError as e:\n    return f\"❌ {str(e)}\"\n  except Exception as e:\n    return f\"❌ Error inesperado: {str(e)}\"\n\ncorrer_tests()\n",
+      "hint": "`range(5)` genera los números del 0 al 4. Dentro del bucle, puedes ir añadiendo cada número a `suma_total` usando el operador `+=`.",
+      "solution": "suma_total = 0\nfor numero in range(5):\n  suma_total += numero"
+    },
+    {
+      "id": "definir_funcion",
+      "title": "Definir una Función",
+      "description": "Define una función llamada `saludar` que reciba un `nombre` como argumento y devuelva el string \"Hola, \" seguido del nombre. Luego, llama a la función con tu nombre y guarda el resultado en la variable `saludo`.",
+      "defaultCode": "# Define la función 'saludar' aquí\n\n\n# Llama a la función y guarda el resultado en la variable 'saludo'\n\n",
+      "testHarness": "\ndef correr_tests():\n  try:\n    assert 'saludar' in globals() and callable(saludar), \"La función 'saludar' no está definida o no es una función.\"\n    from inspect import signature\n    assert len(signature(saludar).parameters) == 1, \"La función 'saludar' debe aceptar un solo argumento.\"\n    assert saludar('Mundo') == 'Hola, Mundo', \"La función no devuelve el texto esperado. Debería ser 'Hola, ' + nombre.\"\n    assert 'saludo' in globals(), \"La variable 'saludo' no está definida.\"\n    assert isinstance(saludo, str) and 'Hola,' in saludo, \"No has llamado a la función o no has guardado bien el resultado en 'saludo'.\"\n    return \"✅ ¡Felicidades! Has creado y usado tu primera función.\"\n  except AssertionError as e:\n    return f\"❌ {str(e)}\"\n  except Exception as e:\n    return f\"❌ Error inesperado: {str(e)}\"\n\ncorrer_tests()\n",
+      "hint": "Para definir una función, usa `def nombre_funcion(parametro):`. Dentro de la función, usa `return` para devolver un valor. Para unir texto, usa el operador `+`.",
+      "solution": "def saludar(nombre):\n  return \"Hola, \" + nombre\n\n\nsaludo = saludar(\"Usuario\")"
+    }
+  ]
+}
