@@ -2,7 +2,7 @@
 
 Este es un proyecto de Next.js creado en Firebase Studio que funciona como un entorno de pruebas interactivo para código Python, utilizando Pyodide para ejecutarlo directamente en el navegador.
 
-## Cómo empezar
+<!--## Cómo empezar
 
 Para empezar a explorar y modificar el proyecto, echa un vistazo al archivo principal de la página en `src/app/page.tsx`.
 
@@ -56,4 +56,4 @@ Para actualizar los ejercicios, sigue este flujo:
 2.  **Sube los cambios a tu repositorio de Git.**
 3.  **Vercel detectará los cambios y redesplegará tu sitio automáticamente.**
 
-Pocos minutos después, tu aplicación en Vercel tendrá los ejercicios actualizados.
+Pocos minutos después, tu aplicación en Vercel tendrá los ejercicios actualizados.-->
