@@ -4,7 +4,7 @@ import { useEffect, useState, useTransition, useRef } from "react";
 import type { Pyodide, PyProxy } from "@/types/pyodide";
 import { exercises } from "@/lib/exercises.json";
 import { explainCodeAction } from "@/app/actions";
-import type { ExplainCodeInput, ExplainCodeOutput } from "@/ai/flows/explain-code-flow";
+
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
