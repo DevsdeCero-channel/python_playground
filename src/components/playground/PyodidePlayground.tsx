@@ -198,7 +198,7 @@ export default function PyodidePlayground() {
               <CardTitle>Tu Código</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="overflow-x-auto rounded-lg border">
+              <div className="w-full overflow-x-auto rounded-lg border">
                 <CodeEditor
                   value={code}
                   language="python"
