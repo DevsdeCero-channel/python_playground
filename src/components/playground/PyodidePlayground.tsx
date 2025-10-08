@@ -50,6 +50,7 @@ export default function PyodidePlayground() {
   const [showHint, setShowHint] = useState(false);
   
   const playgroundRef = useRef<HTMLDivElement>(null);
+  const hintRef = useRef<HTMLDivElement>(null);
 
 
   useEffect(() => {
@@ -78,6 +79,12 @@ export default function PyodidePlayground() {
     setErrorCount(0);
     setShowHint(false);
   }, [selectedExerciseId]);
+
+  useEffect(() => {
+    if (showHint && hintRef.current) {
+      hintRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }, [showHint]);
 
   const handleEvaluate = () => {
     if (!pyodide) return;
@@ -233,7 +240,7 @@ export default function PyodidePlayground() {
           <CardHeader>
             <CardTitle>Resultado</CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="space-y-4">
             {(isBusy) && !output && <Skeleton className="h-20 w-full" />}
             {!isBusy && !output && (
               <div className="text-sm text-muted-foreground p-4 text-center border-dashed border rounded-lg">
@@ -249,6 +256,19 @@ export default function PyodidePlayground() {
                 </AlertDescription>
               </Alert>
             )}
+
+            {showHint && currentExercise.hint && (
+              <div ref={hintRef} className="border rounded-lg p-4">
+                <h3 className="flex items-center gap-2 text-base font-semibold mb-2">
+                  <Lightbulb className="h-5 w-5 text-yellow-500 dark:text-yellow-400" />
+                  <span>¿Necesitas una pista?</span>
+                </h3>
+                <p 
+                  className="text-sm text-muted-foreground"
+                  dangerouslySetInnerHTML={{ __html: currentExercise.hint.replace(/`([^`]+)`/g, '<code class=\"font-bold\">$1</code>') }} 
+                />
+              </div>
+            )}
           </CardContent>
         </Card>
 
@@ -256,30 +276,12 @@ export default function PyodidePlayground() {
             <Button 
                 onClick={handleNextExercise} 
                 disabled={isLastExercise} 
-                variant="outline"
-                className="hover:bg-[#F8F8F8] dark:hover:bg-white/10"
+                className="bg-green-600 text-white hover:bg-green-700 dark:bg-green-700 dark:hover:bg-green-800"
             >
                 Siguiente Ejercicio
                 <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
         </div>
-
-        {showHint && currentExercise.hint && (
-           <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-base">
-                <Lightbulb className="h-5 w-5 text-yellow-500 dark:text-yellow-400" />
-                <span>¿Necesitas una pista?</span>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p 
-                className="text-sm text-muted-foreground"
-                dangerouslySetInnerHTML={{ __html: currentExercise.hint.replace(/`([^`]+)`/g, '<code class=\"font-bold\">$1</code>') }} 
-              />
-            </CardContent>
-           </Card>
-        )}
       </div>
     </div>
   );
