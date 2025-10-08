@@ -3,13 +3,12 @@
 import { useEffect, useState, useTransition, useRef } from "react";
 import type { Pyodide, PyProxy } from "@/types/pyodide";
 import { exercises } from "@/lib/exercises.json";
-import { explainCodeAction } from "@/app/actions";
 
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Loader2, Play, AlertCircle, CheckCircle, Lightbulb, ArrowRight, WandSparkles } from "lucide-react";
+import { Loader2, Play, AlertCircle, CheckCircle, Lightbulb, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Skeleton } from "../ui/skeleton";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -38,7 +37,6 @@ export default function PyodidePlayground() {
   const [pyodide, setPyodide] = useState<Pyodide | null>(null);
   const [isLoadingPyodide, setIsLoadingPyodide] = useState(true);
   const [isEvaluating, startTransition] = useTransition();
-  const [isExplaining, setIsExplaining] = useState(false);
   
   const [selectedExerciseId, setSelectedExerciseId] = useState(exercises[0].id);
   const currentExercise = exercises.find(ex => ex.id === selectedExerciseId) || exercises[0];
@@ -138,30 +136,7 @@ export default function PyodidePlayground() {
     });
   };
 
-  const handleExplainCode = async () => {
-    if (!code) {
-        setOutput({ type: 'info', message: 'No hay código que explicar. Escribe algo en el editor primero.' });
-        return;
-    }
-    setIsExplaining(true);
-    setOutput(null);
-    setShowHint(false);
-    try {
-        const result = await explainCodeAction({ code });
-        if (result.success) {
-            setOutput({ type: 'info', message: result.explanation! });
-        } else {
-            setOutput({ type: 'error', message: result.error! });
-        }
-    } catch (error: any) {
-        console.error(error);
-        setOutput({ type: 'error', message: 'Ha ocurrido un error inesperado al conectar con el servidor.' });
-    } finally {
-        setIsExplaining(false);
-    }
-  };
-
-
+ 
   const handleNextExercise = () => {
     if (!isLastExercise) {
       const nextExerciseId = exercises[currentExerciseIndex + 1].id;
@@ -171,7 +146,7 @@ export default function PyodidePlayground() {
   };
 
   const isReady = !isLoadingPyodide && pyodide;
-  const isBusy = isEvaluating || isExplaining;
+  const isBusy = isEvaluating;
 
   return (
     <div className="space-y-6" ref={playgroundRef}>
@@ -249,14 +224,6 @@ export default function PyodidePlayground() {
               )}
               {isLoadingPyodide ? "Cargando Entorno..." : isEvaluating ? "Evaluando..." : "Probar Código"}
             </Button>
-            <Button onClick={handleExplainCode} disabled={!isReady || isBusy} size="lg" className="bg-green-600 text-white hover:bg-green-700 dark:bg-green-700 dark:hover:bg-green-800">
-                {isExplaining ? (
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                ) : (
-                    <WandSparkles className="mr-2 h-4 w-4" />
-                )}
-                {isExplaining ? "Explicando..." : "Explicar Código"}
-            </Button>
           </div>
         </div>
       </div>
@@ -270,13 +237,13 @@ export default function PyodidePlayground() {
             {(isBusy) && !output && <Skeleton className="h-20 w-full" />}
             {!isBusy && !output && (
               <div className="text-sm text-muted-foreground p-4 text-center border-dashed border rounded-lg">
-                Haz clic en "Probar Solución" o "Explicar Código" para ver el resultado.
+                Haz clic en "Probar Solución" para ver el resultado.
               </div>
             )}
             {output && (
               <Alert variant={output.type === 'error' ? 'destructive' : output.type === 'success' ? 'default' : 'default'} className={cn(output.type === 'success' && "border-green-500/50 text-green-700 dark:text-green-400", output.type === 'info' && "border-blue-500/50 text-blue-700 dark:text-blue-400")}>
-                {output.type === 'success' ? <CheckCircle className="h-4 w-4" /> : output.type === 'info' ? <WandSparkles className="h-4 w-4" /> : <AlertCircle className="h-4 w-4" />}
-                <AlertTitle>{output.type === 'success' ? 'Éxito' : output.type === 'info' ? 'Explicación de la IA' : 'Error'}</AlertTitle>
+                {output.type === 'success' ? <CheckCircle className="h-4 w-4" /> : <AlertCircle className="h-4 w-4" />}
+                <AlertTitle>{output.type === 'success' ? 'Éxito' : 'Error'}</AlertTitle>
                 <AlertDescription className="whitespace-pre-wrap font-code text-sm text-foreground">
                   {output.message}
                 </AlertDescription>
