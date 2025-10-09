@@ -91,4 +91,5 @@ body {
   word-break: normal !important;
   overflow-wrap: normal !important;
   min-width: 100% !important;
+  padding-right: 15rem !important; 
 }
