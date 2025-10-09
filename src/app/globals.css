@@ -90,4 +90,5 @@ body {
   white-space: pre !important;
   word-break: normal !important;
   overflow-wrap: normal !important;
+  min-width: 100% !important;
 }
