@@ -3,10 +3,37 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { ThemeProvider } from '@/components/ThemeProvider';
 
+const appURL = 'https://python-playground.vercel.app'; 
+const ogImageURL = `${appURL}/logo_devs.png`
+
 export const metadata: Metadata = {
-  title: 'Python Playground',
-  description: 'A safe and robust web application for learning Python, using Pyodide to run code in a browser sandbox.',
-};
+  title: 'Python Playground | DevsdeCero',
+  description: 'Una aplicación web segura y robusta para aprender con ejercicios en Python, que utiliza Pyodide para ejecutar código en un entorno aislado (sandbox) del navegador.',
+  
+  openGraph: {
+    title: 'Python Playground | DevsdeCero',
+    description: 'Una aplicación web segura y robusta para aprender con ejercicios en Python, que utiliza Pyodide para ejecutar código en un entorno aislado (sandbox) del navegador.',
+    url: appURL,
+    siteName: 'Python Playground | DevsdeCero',
+    images: [
+      {
+        url: ogImageURL,
+        width: 512,
+        height: 512,
+        alt: 'Logo DevsdeCero',
+      },
+    ],
+    locale: 'es_ES',
+    type: 'website',
+  },
+
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Python Playground',
+    description: 'Aprende Python de forma segura y directa, sin necesidad de instalación.', 
+    images: [ogImageURL],
+  },
+}
 
 export default function RootLayout({
   children,
