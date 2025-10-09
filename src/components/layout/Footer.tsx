@@ -14,7 +14,7 @@ export function Footer() {
             YouTube
           </a>
           <p className="text-[0.6rem] sm:text-xs text-muted-foreground text-center flex items-center gap-1.5">
-            &copy; {new Date().getFullYear()} De DevsdeCero con <Heart className="h-4 w-4 text-red-500 fill-current" />. Todos los derechos reservados.
+            &copy; {new Date().getFullYear()} De DevsdeCero con <Heart className="h-4 w-4 text-red-500 fill-current" /> Todos los derechos reservados.
           </p>
         </div>
       </div>

@@ -41,7 +41,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="es-ES" suppressHydrationWarning>
       <head>
         <link rel="icon" type="image/x-icon" href="/fav.ico"></link>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
