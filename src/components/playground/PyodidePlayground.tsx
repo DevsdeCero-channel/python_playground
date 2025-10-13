@@ -24,6 +24,9 @@ type OutputState = {
 const successMessages = [
   "¡Lo has clavado! ¿Seguro que no eres un bot?",
   "¡Código perfecto! Ni una pega. Sigue así, máquina.",
+  "¡Éxito total. Ahora tienes que probar en tu terminal, no te acomodes!",
+  "¡Vas por buen camino!",
+  "Python Playground mola, pero tienes que ir siempre un poco más allá.",
   "¡Correcto! ¿No serás tú Guido Van Rossum?.",
   "¡Funciona! Eres imparable. Pero no te flipes que hay que seguir estudiando.",
   "¡Ni un fallo! No te relajes crack, se aprende más de los errores.",
