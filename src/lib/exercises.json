@@ -2,7 +2,7 @@
   "exercises": [
     {
       "id": "asignacion_variables",
-      "title": "Asignación de Variables",
+      "title": "Asignación de variables",
       "description": "El objetivo de este ejercicio es familiarizarse con la asignación de variables. Declara dos variables: `nombre` (de tipo string) y `edad` (de tipo entero).",
       "defaultCode": "# Asigna tu nombre a la variable 'nombre'\n\n\n# Asigna tu edad a la variable 'edad'\n\n",
       "testHarness": "\ndef correr_tests():\n  try:\n    assert 'nombre' in globals(), \"La variable 'nombre' no está definida. ¡Asegúrate de haberla escrito!\"\n    assert 'edad' in globals(), \"La variable 'edad' no está definida. ¡Asegúrate de haberla escrito!\"\n    assert isinstance(nombre, str) and nombre != \"\", \"La variable 'nombre' debe ser un texto (string) y no puede estar vacía. Por ejemplo: nombre = \\\"Ana\\\"\"\n    assert isinstance(edad, int) and edad > 0, \"La variable 'edad' debe ser un número entero y positivo. Por ejemplo: edad = 25\"\n    return \"✅ ¡Todos los tests pasaron exitosamente! Has asignado las variables correctamente.\"\n  except NameError as e:\n    return f\"❌ Error: Parece que una variable no está definida: {e}\"\n  except AssertionError as e:\n    return f\"❌ {str(e)}\"\n  except Exception as e:\n    return f\"❌ Error inesperado durante la ejecución de los tests: {str(e)}\"\n\ncorrer_tests()\n",
@@ -11,8 +11,8 @@
     },
     {
       "id": "tipo_string",
-      "title": "String",
-      "description": "Combina las dos variables de texto, `parte1` y `parte2`, para formar la frase completa 'El código es la clave.'. El resultado debe guardarse en una nueva variable llamada `mensaje_final`.",
+      "title": "Strings",
+      "description": "Combina las dos variables de texto, `parte1` y `parte2`, para formar la frase completa 'Estoy aprendiendo a programar.'. El resultado debe guardarse en una nueva variable llamada `mensaje_final`.",
       "defaultCode": "parte1 = \"Estoy aprendiendo\"\nparte2 = \" a programar.\"\n\n# Combina las dos partes y guarda el resultado en 'mensaje_final'\n\n",
       "testHarness": "\ndef correr_tests():\n  try:\n    assert 'mensaje_final' in globals(), \"La variable 'mensaje_final' no está definida.\"\n    assert isinstance(mensaje_final, str), \"'mensaje_final' debe ser un tipo String.\"\n    assert mensaje_final == \"Estoy aprendiendo a programar.\", f\"El mensaje es incorrecto. Se esperaba 'Estoy aprendiendo a programar.' pero se obtuvo '{mensaje_final}'.\"\n    return \"✅ ¡Correcto! Has concatenado las cadenas correctamente.\"\n  except NameError as e:\n    return f\"❌ Error: Parece que una variable no está definida: {e}\"\n  except AssertionError as e:\n    return f\"❌ {str(e)}\"\n  except Exception as e:\n    return f\"❌ Error inesperado: {str(e)}\"\n\ncorrer_tests()\n",
       "hint": "Usa el operador '+' para unir dos variables de tipo String.",
@@ -20,7 +20,7 @@
     },
     {
       "id": "tipo_integer_multiplicacion",
-      "title": "Integer",
+      "title": "Integers",
       "description": "Calcula el número total de lápices que tienes. Hay una variable `cajas` (5) y otra `lapices_por_caja` (12). El resultado debe ser un número entero y guardarse en la variable `total_lapices`.",
       "defaultCode": "cajas = 5\nlapices_por_caja = 12\n\n# Calcula el total de lápices usando multiplicación (*)\n\n",
       "testHarness": "\ndef correr_tests():\n  try:\n    assert 'total_lapices' in globals(), \"La variable 'total_lapices' no está definida.\"\n    assert isinstance(total_lapices, int), \"'total_lapices' debe ser un tipo Integer (entero).\"\n    assert total_lapices == 60, f\"El cálculo es incorrecto. Se esperaba 60 pero se obtuvo {total_lapices}. Revisa el operador usado.\"\n    return \"✅ ¡Excelente! Has obtenido el total de lápices correctamente.\"\n  except NameError as e:\n    return f\"❌ Error: Parece que una variable no está definida: {e}\"\n  except AssertionError as e:\n    return f\"❌ {str(e)}\"\n  except Exception as e:\n    return f\"❌ Error inesperado: {str(e)}\"\n\ncorrer_tests()\n",
@@ -38,7 +38,7 @@
     },
     {
       "id": "tipo_boolean_estado",
-      "title": "Boolean",
+      "title": "Booleans",
       "description": "Una bombilla solo puede tener dos estados: encendida (`True`) o apagada (`False`). Asigna el estado lógico correcto a cada bombilla según su situación actual. La variable `luz_dormitorio` está encendida y `luz_sotano` está apagada.",
       "defaultCode": "# Variables de estado lógico\nencendida = True\napagada = False\n\n# La luz del dormitorio está encendida.\nluz_dormitorio = ...\n\n# La luz del sótano está apagada.\nluz_sotano = ...\n\n",
       "testHarness": "\ndef correr_tests():\n  try:\n    assert 'luz_dormitorio' in globals(), \"La variable 'luz_dormitorio' no está definida.\"\n    assert 'luz_sotano' in globals(), \"La variable 'luz_sotano' no está definida.\"\n    \n    assert isinstance(luz_dormitorio, bool), \"'luz_dormitorio' debe ser un tipo Boolean.\"\n    assert isinstance(luz_sotano, bool), \"'luz_sotano' debe ser un tipo Boolean.\"\n    \n    assert luz_dormitorio == True, \"El estado de 'luz_dormitorio' es incorrecto. Debería ser True.\"\n    assert luz_sotano == False, \"El estado de 'luz_sotano' es incorrecto. Debería ser False.\"\n    \n    return \"✅ ¡Muy bien! Has asignado los estados lógicos correctamente.\"\n  except NameError as e:\n    return f\"❌ Error: Parece que una variable no está definida: {e}\"\n  except AssertionError as e:\n    return f\"❌ {str(e)}\"\n  except Exception as e:\n    return f\"❌ Error inesperado: {str(e)}\"\n\ncorrer_tests()\n",
@@ -47,7 +47,7 @@
     },
     {
       "id": "operadores_aritmeticos",
-      "title": "Operador Aritmético",
+      "title": "Operadores aritméticos",
       "description": "Usa operadores aritméticos para calcular el área de un rectángulo. Tienes dos variables, `base` y `altura`. El resultado debe guardarse en una nueva variable llamada `area`.",
       "defaultCode": "# Tenemos la base y la altura de un rectángulo\nbase = 10\naltura = 5\n\n# Calcula el área y guárdala en una variable llamada 'area'\n\n",
       "testHarness": "\ndef correr_tests():\n  try:\n    assert 'area' in globals(), \"La variable 'area' no está definida.\"\n    assert area == 50, f\"El cálculo es incorrecto. Se esperaba 50 pero se obtuvo {area}. Revisa tu fórmula.\"\n    return \"✅ ¡Excelente! Has calculado el área correctamente.\"\n  except NameError as e:\n    return f\"❌ Error: Parece que una variable no está definida: {e}\"\n  except AssertionError as e:\n    return f\"❌ {str(e)}\"\n  except Exception as e:\n    return f\"❌ Error inesperado: {str(e)}\"\n\ncorrer_tests()\n",
@@ -56,7 +56,7 @@
     },
     {
       "id": "operadores_asignacion",
-      "title": "Operador de Asignación",
+      "title": "Operadores de asignación",
       "description": "Tienes un `puntaje_inicial` y has ganado `puntos_extra`. Usa el operador de asignación combinada (`+=`) para añadir los `puntos_extra` directamente a la variable `puntaje_inicial`. No crees una nueva variable.",
       "defaultCode": "puntaje_inicial = 100\npuntos_extra = 25\n\n# Suma los puntos extra al puntaje inicial usando el operador de asignación\n\n",
       "testHarness": "\ndef correr_tests():\n  try:\n    assert 'puntaje_inicial' in globals(), \"La variable 'puntaje_inicial' no está definida.\"\n    assert puntaje_inicial == 125, f\"El puntaje final es incorrecto. Se esperaba 125 pero se obtuvo {puntaje_inicial}. Revisa el uso de '+='.\"\n    return \"✅ ¡Éxito! Has usado el operador de asignación correctamente.\"\n  except NameError as e:\n    return f\"❌ Error: Parece que una variable no está definida: {e}\"\n  except AssertionError as e:\n    return f\"❌ {str(e)}\"\n  except Exception as e:\n    return f\"❌ Error inesperado: {str(e)}\"\n\ncorrer_tests()\n",
@@ -65,7 +65,7 @@
     },
     {
       "id": "operadores_comparacion",
-      "title": "Operador de Comparación",
+      "title": "Operadores de comparación",
       "description": "Tienes el `password_guardado` y el `password_ingresado`. Usa el operador de comparación para verificar si ambos son **exactamente iguales**. Guarda el resultado lógico (`True` o `False`) en la variable `es_valido`.",
       "defaultCode": "password_guardado = \"claveSecreta123\"\npassword_ingresado = \"ClaveSecreta123\"\n\n# Compara las dos contraseñas y guarda el resultado lógico en 'es_valido'\n\n",
       "testHarness": "\ndef correr_tests():\n  try:\n    assert 'es_valido' in globals(), \"La variable 'es_valido' no está definida.\"\n    assert isinstance(es_valido, bool), \"'es_valido' debe ser un tipo Boolean.\"\n    assert es_valido == False, \"La comparación es incorrecta. Las contraseñas no son iguales (diferencia de mayúsculas/minúsculas).\"\n    return \"✅ ¡Genial! Has usado el operador de comparación de igualdad (==) correctamente.\"\n  except NameError as e:\n    return f\"❌ Error: Parece que una variable no está definida: {e}\"\n  except AssertionError as e:\n    return f\"❌ {str(e)}\"\n  except Exception as e:\n    return f\"❌ Error inesperado: {str(e)}\"\n\ncorrer_tests()\n",
@@ -83,7 +83,7 @@
     },
     {
       "id": "expresiones_declaraciones",
-      "title": "Expresiones de Declaraciones",
+      "title": "Expresiones y declaraciones",
       "description": "Una **Declaración** (Statement) es una instrucción que realiza una acción (como imprimir o asignar). Una **Expresión** es una parte de la declaración que Python evalúa y produce un valor.\n\nCompleta las siguientes tareas:\n\n1.  En la línea de asignación, la **Expresión** debe calcular el doble del `precio_base`.\n2.  La **Declaración** completa asigna el resultado a la variable `precio_total`.",
       "defaultCode": "precio_base = 25\n\n# La Declaración de asignación completa es:\nprecio_total = ...\n\n# La Expresión debe ser una operación simple (precio_base * 2)\n\n",
       "testHarness": "\ndef correr_tests():\n  try:\n    assert 'precio_total' in globals(), \"La variable 'precio_total' no está definida. Asegúrate de usar la variable 'precio_total'.\"\n    assert isinstance(precio_total, int) or isinstance(precio_total, float), \"El resultado debe ser un número (entero o decimal).\"\n    \n    # Verificamos que se haya usado la expresión * 2\n    if precio_total != 50:\n        return f\"❌ Error: Se esperaba que el precio total fuera el doble de 25 (50), pero se obtuvo {precio_total}.\"\n\n    # Verificación estricta de la sintaxis esperada (para el concepto)\n    default_code_lines = [line.strip() for line in __user_code__.split('\\n') if line.strip() and not line.strip().startswith('#')]\n    \n    if len(default_code_lines) < 2:\n        return \"❌ Error: Parece que no has escrito la línea de asignación. Se esperaba una sola línea de código.\"\n\n    # Si pasa la prueba de valor y sintaxis simple\n    return \"✅ ¡Concepto Clave Dominado! La operación `precio_base * 2` es la **Expresión**, y la línea completa `precio_total = ...` es la **Declaración**.\"\n\n  except NameError as e:\n    return f\"❌ Error: Parece que una variable no está definida: {e}\"\n  except Exception as e:\n    return f\"❌ Error inesperado: {str(e)}\"\n\ncorrer_tests()\n",
@@ -146,7 +146,7 @@
     },
     {
       "id": "funcion_definicion",
-      "title": "Definición de una Función",
+      "title": "Definición de una función",
       "description": "Define una función llamada `saludo_simple` que no acepte parámetros. Dentro de la función, usa `print()` para mostrar el mensaje: '¡Hola, Dev!'.",
       "defaultCode": "# Define la función 'saludo_simple' aquí\n...\n    print(\"¡Hola, Dev!\")\n\n# La llamada a la función se hace fuera del espacio de código\n",
       "testHarness": "\ndef correr_tests():\n  import io\n  import sys\n  if 'saludo_simple' not in globals() or not callable(saludo_simple):\n    return \"❌ Error: La función 'saludo_simple' no está definida o no es una función.\"\n  \n  # Capturar salida para verificar el print\n  capturedOutput = io.StringIO()\n  sys.stdout = capturedOutput\n  saludo_simple()\n  sys.stdout = sys.__stdout__\n  \n  if '¡Hola, Dev!' not in capturedOutput.getvalue():\n    return \"❌ Error: La función no está imprimiendo el mensaje esperado: '¡Hola, Dev!'.\"\n    \n  return \"✅ ¡Éxito! Has definido la función 'saludo_simple' correctamente.\"\n\ncorrer_tests()\n",
@@ -155,7 +155,7 @@
     },
     {
       "id": "funcion_llamada",
-      "title": "Ejecución de una Función",
+      "title": "Ejecución de una función",
       "description": "La función `generar_reporte` ya está definida. Llama a esta función para ejecutar su código e imprimir el reporte en la consola.",
       "defaultCode": "def generar_reporte():\n    print(\"Iniciando generación de reporte...\")\n    print(\"Reporte de ventas de Q3 completado.\")\n\n# Llama a la función 'generar_reporte' para que se ejecute\n...\n",
       "testHarness": "\ndef correr_tests():\n  import io\n  import sys\n  \n  # Comprobar si la llamada está en el código del usuario (una línea)\n  user_code = [line.strip() for line in __user_code__.split('\\n') if line.strip() and not line.strip().startswith(('def', '#'))]\n  if not user_code or 'generar_reporte()' not in user_code[0]:\n    return \"❌ Error: La función 'generar_reporte' no ha sido llamada (ejecutada) correctamente.\"\n\n  # Capturar salida para verificar la ejecución\n  capturedOutput = io.StringIO()\n  sys.stdout = capturedOutput\n  \n  if 'generar_reporte' in globals():\n    generar_reporte()\n    sys.stdout = sys.__stdout__\n  \n  if 'Reporte de ventas de Q3 completado.' not in capturedOutput.getvalue():\n    return \"❌ Error: La función fue definida pero no se detectó su ejecución.\"\n    \n  return \"✅ ¡Éxito! Has llamado a la función 'generar_reporte' con la sintaxis correcta.\"\n\ncorrer_tests()\n",
@@ -164,7 +164,7 @@
     },
     {
       "id": "funcion_parametros_argumentos",
-      "title": "Parámetros y Argumentos",
+      "title": "Parámetros y argumentos",
       "description": "Define una función llamada `saludar_usuario` que acepte un **parámetro** llamado `nombre`. La función debe imprimir un saludo personalizado: '¡Hola, [nombre]!'.\n\nLuego, **llama** a la función y pasa el **argumento** 'Alex' para que imprima '¡Hola, Alex!'.",
       "defaultCode": "# Define la función 'saludar_usuario' con un parámetro 'nombre'\n...\n    print(f\"¡Hola, {nombre}!\")\n\n# Llama a la función con el argumento 'Alex'\n...\n",
       "testHarness": "\ndef correr_tests():\n  import io\n  import sys\n  if 'saludar_usuario' not in globals() or not callable(saludar_usuario):\n    return \"❌ Error: La función 'saludar_usuario' no está definida.\"\n    \n  # Comprobar la llamada con el argumento\n  capturedOutput = io.StringIO()\n  sys.stdout = capturedOutput\n  \n  try:\n    saludar_usuario('Alex')\n    sys.stdout = sys.__stdout__\n  except TypeError:\n    return \"❌ Error: Asegúrate de que tu función acepte un parámetro llamado 'nombre'.\"\n  \n  if '¡Hola, Alex!' not in capturedOutput.getvalue():\n    return \"❌ Error: La función no está imprimiendo el saludo correcto para 'Alex'.\"\n    \n  return \"✅ ¡Dominado! Has definido la función con un parámetro y la has llamado con un argumento.\"\n\ncorrer_tests()\n",
@@ -173,7 +173,7 @@
     },
     {
       "id": "funcion_uso_return",
-      "title": "Uso de Return",
+      "title": "Uso de return",
       "description": "Define una función llamada `calcular_doble` que acepte un parámetro `numero`. La función debe **devolver** el doble de ese número, usando la palabra clave `return`.\n\nLuego, **llama** a la función con el argumento 10 y guarda el valor devuelto en la variable `resultado`.",
       "defaultCode": "# Define la función 'calcular_doble' que devuelve (return) el doble de 'numero'\n...\n    return numero * 2\n\n# Llama a la función con el argumento 10 y guarda el resultado\nresultado = ...\n",
       "testHarness": "\ndef correr_tests():\n  if 'calcular_doble' not in globals() or not callable(calcular_doble):\n    return \"❌ Error: La función 'calcular_doble' no está definida.\"\n  \n  # Probar la función directamente\n  if calcular_doble(5) != 10:\n    return \"❌ Error: La función no devuelve el doble del número correctamente (debería ser 10).\n  \n  # Probar la asignación del valor de retorno\n  if 'resultado' not in globals():\n    return \"❌ Error: La variable 'resultado' no está definida.\"\n  \n  if resultado != 20:\n    return f\"❌ Error: Se esperaba que 'resultado' fuera 20 (el doble de 10) pero se obtuvo {resultado}.\n    \n  return \"✅ ¡Éxito! Has usado 'return' para devolver un valor de la función.\"\n\ncorrer_tests()\n",
@@ -182,7 +182,7 @@
     },
     {
       "id": "funcion_buenas_practicas_docstring",
-      "title": "Buenas Prácticas: Documentación (Docstring)",
+      "title": "Buenas prácticas en funciones",
       "description": "Define una función simple llamada `area_circulo` que no haga nada por ahora (usa `pass`). \n\nLa tarea es añadir un **Docstring** (una cadena de texto multilínea) justo después de la definición, explicando que la función 'Calcula el área de un círculo'.",
       "defaultCode": "# Define la función 'area_circulo' con pass\ndef area_circulo():\n    ...\n    pass\n",
       "testHarness": "\ndef correr_tests():\n  if 'area_circulo' not in globals() or not callable(area_circulo):\n    return \"❌ Error: La función 'area_circulo' no está definida.\"\n  \n  # Verificar si existe un docstring\n  docstring = area_circulo.__doc__\n  \n  if not docstring:\n    return \"❌ Error: La función no tiene un Docstring (cadena de texto) justo después de la definición.\"\n  \n  # Normalizar y verificar el contenido mínimo\n  if 'Calcula el área de un círculo' not in docstring:\n    return f\"❌ Error: El Docstring no contiene la descripción esperada.\"\n    \n  return \"✅ ¡Excelente! Has documentado tu función usando un Docstring, una excelente práctica de Python.\"\n\ncorrer_tests()\n",
