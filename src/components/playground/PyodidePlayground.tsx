@@ -23,13 +23,15 @@ type OutputState = {
 
 const successMessages = [
   "¡Lo has clavado! ¿Seguro que no eres un bot?",
-  "¡Código perfecto! Ni una pega. Sigue así, máquina.",
-  "¡Éxito total. Ahora tienes que probar en tu terminal, no te acomodes!",
-  "¡Vas por buen camino!",
-  "Python Playground mola, pero tienes que ir siempre un poco más allá.",
+  "¡Código perfecto! Ni una pega, sigue así.",
+  "¡Éxito total! Prueba también en tu terminal, no te acomodes.",
+  "¡No se puede hacer mejor!",
+  "Python Playground mola, pero tú molas más.",
   "¡Correcto! ¿No serás tú Guido Van Rossum?.",
   "¡Funciona! Eres imparable. Pero no te flipes que hay que seguir estudiando.",
   "¡Ni un fallo! No te relajes crack, se aprende más de los errores.",
+  "Ha sido fácil, ¿verdad?",
+  "El código es poderoso en ti"
 ];
 
 const getRandomSuccessMessage = () => {
@@ -54,6 +56,7 @@ export default function PyodidePlayground() {
   
   const playgroundRef = useRef<HTMLDivElement>(null);
   const hintRef = useRef<HTMLDivElement>(null);
+  const resultRef = useRef<HTMLDivElement>(null);
 
 
   useEffect(() => {
@@ -88,6 +91,12 @@ export default function PyodidePlayground() {
       hintRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   }, [showHint]);
+
+  useEffect(() => {
+    if (output && resultRef.current) {
+      resultRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }, [output]);
 
   const handleEvaluate = () => {
     if (!pyodide) return;
@@ -238,7 +247,7 @@ export default function PyodidePlayground() {
         </div>
       </div>
 
-      <div className="space-y-6">
+      <div className="space-y-6" ref={resultRef}>
         <Card>
           <CardHeader>
             <CardTitle>Resultado</CardTitle>
