@@ -127,28 +127,28 @@
       "solution": "suma_total += numero"
     },
     {
-      "id": "while_continue_saltar",
+      "id": "while_continue_palabra",
       "title": "Bucle while usando 'continue'",
-      "description": "Usa un bucle `while` para iterar, comenzando en 0, hasta que el contador llegue a 5. \n\n Primero, incrementa `contador` en 1.\n Si `contador` es igual a 3, usa la palabra clave `continue` para saltar la suma.\n Los números que no se saltan deben sumarse a la variable `suma_final`.",
-      "defaultCode": "suma_final = 0\ncontador = 0\n\n# Bucle que se ejecuta mientras el contador sea menor a 5\nwhile contador < 5:\n    # 1. Incrementa el contador (Se genera 1, 2, 3, 4, 5)\n    contador += 1\n    \n    # 2. Si el contador es 3, salta la suma (continue)\n    if \n        continue\n\n    # 3. Suma el número a la variable final\n    suma_final += contador\n\n",
-      "testHarness": "\ndef correr_tests():\n  try:\n    assert 'suma_final' in globals(), \"La variable 'suma_final' no está definida.\"\n    # El bucle suma 1 + 2 + (salta 3) + 4 + 5 = 12\n    assert suma_final == 12, f\"Resultado incorrecto. Se esperaba 12 pero se obtuvo {suma_final}. Revisa la condición de 'continue' y el incremento del contador.\"\n    \n    assert 'contador' in globals(), \"La variable 'contador' no está definida.\"\n    assert contador == 5, f\"El contador final es incorrecto. Se esperaba 5 pero se obtuvo {contador}.\"\n    \n    return \"✅ ¡Continue Dominado! El bucle while saltó el número 3 y luego continuó hasta el final.\"\n  except NameError as e:\n    return f\"❌ Error: Parece que una variable no está definida: {e}\"\n  except AssertionError as e:\n    return f\"❌ {str(e)}\"\n  except Exception as e:\n    return f\"❌ Error inesperado: {str(e)}\"\n\ncorrer_tests()\n",
-      "hint": "La condición para el 'continue' debe ser `contador == 3`. La condición del bucle `while` debe ser estricta (`< 5`) para asegurar que el contador se detenga en 5.",
-      "solution": "contador == 3"
+      "description": "Usa la palabra clave `continue` para saltar la suma en la iteración donde el `contador` es igual a 3.",
+      "defaultCode": "suma_final = 0\ncontador = 0\n\n# Bucle que se ejecuta mientras el contador sea menor a 5\nwhile contador < 5:\n    # 1. Incrementa el contador (Se genera 1, 2, 3, 4, 5)\n    contador += 1\n    \n    # 2. Si el contador es 3, salta la suma\n    if contador == 3:\n        \n\n    # 3. Suma el número a la variable final\n    suma_final += contador\n\n",
+      "testHarness": "\ndef correr_tests():\n  try:\n    assert 'suma_final' in globals(), \"La variable 'suma_final' no está definida.\"\n    # El bucle suma 1 + 2 + (salta 3) + 4 + 5 = 12\n    assert suma_final == 12, f\"Resultado incorrecto. Se esperaba 12 pero se obtuvo {suma_final}. La palabra clave 'continue' debe saltar solo la suma.\"\n    \n    assert 'contador' in globals(), \"La variable 'contador' no está definida.\"\n    assert contador == 5, f\"El contador final es incorrecto. Se esperaba 5 pero se obtuvo {contador}.\"\n    \n    return \"✅ ¡Palabra Clave Dominada! Has usado 'continue' para saltar una iteración.\"\n  except NameError as e:\n    return f\"❌ Error: Parece que una variable no está definida: {e}\"\n  except AssertionError as e:\n    return f\"❌ {str(e)}\"\n  except Exception as e:\n    return f\"❌ Error inesperado: {str(e)}\"\n\ncorrer_tests()\n",
+      "hint": "Solo necesitas introducir la palabra clave que salta el resto del código del bucle para la iteración actual.",
+      "solution": "continue"
     },
     {
-      "id": "while_break_detener",
-      "title": "Bucle while con 'break'",
-      "description": "Usa un bucle `while` que itere hasta que el contador llegue a 5.\n\n Primero, incrementa `contador` en 1.\n Si `contador` es igual a 3, usa la palabra clave `break` para detener completamente el bucle.\n Los números procesados antes de la detención deben sumarse a la variable `suma_final`.",
-      "defaultCode": "suma_final = 0\ncontador = 0\n\n# Bucle que se ejecuta mientras el contador sea menor a 5\nwhile contador < 5:\n    # 1. Incrementa el contador\n    contador += 1\n    \n    # 2. Si el contador es 3, detiene el bucle (break)\n    if \n        break\n\n    # 3. Suma el número a la variable final (antes de que se detenga)\n    suma_final += contador\n\n",
-      "testHarness": "\ndef correr_tests():\n  try:\n    assert 'suma_final' in globals(), \"La variable 'suma_final' no está definida.\"\n    # El bucle suma 1 + 2 y luego se detiene en 3. (1 + 2 = 3)\n    assert suma_final == 3, f\"Resultado incorrecto. Se esperaba 3 pero se obtuvo {suma_final}. Recuerda que 'break' detiene el bucle por completo.\"\n    \n    assert 'contador' in globals(), \"La variable 'contador' no está definida.\"\n    # El contador debe detenerse en 3\n    assert contador == 3, f\"El contador final es incorrecto. Se esperaba 3 pero se obtuvo {contador}.\"\n    \n    return \"✅ ¡Break Dominado! El bucle while se detuvo inmediatamente al llegar a 3.\"\n  except NameError as e:\n    return f\"❌ Error: Parece que una variable no está definida: {e}\"\n  except AssertionError as e:\n    return f\"❌ {str(e)}\"\n  except Exception as e:\n    return f\"❌ Error inesperado: {str(e)}\"\n\ncorrer_tests()\n",
-      "hint": "La condición para el 'break' debe ser `contador == 3`. La diferencia clave con 'continue' es que 'break' detiene el bucle por completo.",
-      "solution": "contador == 3"
+      "id": "while_break_palabra",
+      "title": "Bucle while usando 'break'",
+      "description": "Usa la palabra clave `break` para detener el bucle por completo cuando el `contador` sea igual a 3.",
+      "defaultCode": "suma_final = 0\ncontador = 0\n\n# Bucle que se ejecuta mientras el contador sea menor a 5\nwhile contador < 5:\n    # 1. Incrementa el contador\n    contador += 1\n    \n    # 2. Detiene el bucle cuando el contador es 3\n    if contador == 3:\n        \n\n    # 3. Suma el número a la variable final (antes de que se detenga)\n    suma_final += contador\n\n",
+      "testHarness": "\ndef correr_tests():\n  try:\n    assert 'suma_final' in globals(), \"La variable 'suma_final' no está definida.\"\n    # El bucle suma 1 + 2 y luego se detiene en 3. (1 + 2 = 3)\n    assert suma_final == 3, f\"Resultado incorrecto. Se esperaba 3 pero se obtuvo {suma_final}. La palabra clave 'break' debe detener el bucle por completo.\"\n    \n    assert 'contador' in globals(), \"La variable 'contador' no está definida.\"\n    assert contador == 3, f\"El contador final es incorrecto. Se esperaba 3 pero se obtuvo {contador}.\"\n    \n    return \"✅ ¡Palabra Clave Dominada! Has usado 'break' para detener el bucle.\"\n  except NameError as e:\n    return f\"❌ Error: Parece que una variable no está definida: {e}\"\n  except AssertionError as e:\n    return f\"❌ {str(e)}\"\n  except Exception as e:\n    return f\"❌ Error inesperado: {str(e)}\"\n\ncorrer_tests()\n",
+      "hint": "Solo necesitas introducir la palabra clave que detiene el bucle completamente.",
+      "solution": "break"
     },
     {
       "id": "funcion_definicion",
       "title": "Definición de una función",
       "description": "Define una función llamada `saludo_simple` que no acepte parámetros. Dentro de la función, usa `print()` para mostrar el mensaje: '¡Hola, Dev!'.",
-      "defaultCode": "# Define la función 'saludo_simple' aquí\n\n  # La llamada a la función se hace fuera del espacio de código\n",
+      "defaultCode": "# Define la función 'saludo_simple' aquí\n\n# La llamada a la función se hace fuera del espacio de código\n",
       "testHarness": "\ndef correr_tests():\n  import io\n  import sys\n  if 'saludo_simple' not in globals() or not callable(saludo_simple):\n    return \"❌ Error: La función 'saludo_simple' no está definida o no es una función.\"\n  \n  # Capturar salida para verificar el print\n  capturedOutput = io.StringIO()\n  sys.stdout = capturedOutput\n  saludo_simple()\n  sys.stdout = sys.__stdout__\n  \n  if '¡Hola, Dev!' not in capturedOutput.getvalue():\n    return \"❌ Error: La función no está imprimiendo el mensaje esperado: '¡Hola, Dev!'.\"\n    \n  return \"✅ ¡Éxito! Has definido la función 'saludo_simple' correctamente.\"\n\ncorrer_tests()\n",
       "hint": "Usa la palabra clave `def` seguida del nombre de la función y paréntesis `()`, terminando con dos puntos `:`. No olvides la indentación.",
       "solution": "def saludo_simple():\n    print(\"¡Hola, Dev!\")"
