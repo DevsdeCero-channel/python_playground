@@ -22,7 +22,7 @@
       "id": "tipo_integer_multiplicacion",
       "title": "Integers",
       "description": "Calcula el número total de lápices que tienes. Hay una variable `cajas` y otra `lapices_por_caja`. El resultado debe ser un número entero y guardarse en la variable `total_lapices`.",
-      "defaultCode": "cajas = 5\nlapices_por_caja = 12\n\n# Calcula el total de lápices usando multiplicación (*)\n\n",
+      "defaultCode": "cajas = 5\nlapices_por_caja = 12\n\n# Calcula el total de lápices usando las variables `cajas` y `lapices_por_caja` para la multiplicación (*)\n\n",
       "testHarness": "\ndef correr_tests():\n  try:\n    assert 'total_lapices' in globals(), \"La variable 'total_lapices' no está definida.\"\n    assert isinstance(total_lapices, int), \"'total_lapices' debe ser un tipo Integer (entero).\"\n    assert total_lapices == 60, f\"El cálculo es incorrecto. Se esperaba 60 pero se obtuvo {total_lapices}. Revisa el operador usado.\"\n    return \"✅ ¡Excelente! Has obtenido el total de lápices correctamente.\"\n  except NameError as e:\n    return f\"❌ Error: Parece que una variable no está definida: {e}\"\n  except AssertionError as e:\n    return f\"❌ {str(e)}\"\n  except Exception as e:\n    return f\"❌ Error inesperado: {str(e)}\"\n\ncorrer_tests()\n",
       "hint": "El total se calcula multiplicando la cantidad de cajas por los lápices que hay en cada una.",
       "solution": "total_lapices = cajas * lapices_por_caja"
@@ -75,7 +75,7 @@
     {
       "id": "operadores_logicos_avanzado",
       "title": "Operadores lógicos",
-      "description": "Un usuario puede acceder a su cuenta premium si tiene una `suscripcion_activa` o tiene un `periodo_prueba` activo, y si el usuario no está `bloqueado`.\n\nUsa los tres operadores lógicos (`and`, `or`, `not`) para evaluar la expresión completa y guarda el resultado (`True` o `False`) en la variable `acceso_premium`.",
+      "description": "Un usuario puede acceder a su cuenta premium si tiene una suscripcion activa o tiene un periodo de prueba activo, y si el usuario no está bloqueado.\n\nUsa los tres operadores lógicos (`and`, `or`, `not`) para evaluar la expresión completa y guarda el resultado (`True` o `False`) en la variable `acceso_premium`.",
       "defaultCode": "suscripcion_activa = False\nperiodo_prueba = True\nno_bloqueado = False\n\n# Evalúa la lógica para determinar si el usuario tiene acceso premium\n# Recuerda la precedencia: (A or B) and (not C)\n\n",
       "testHarness": "\ndef correr_tests():\n  try:\n    assert 'acceso_premium' in globals(), \"La variable 'acceso_premium' no está definida.\"\n    assert isinstance(acceso_premium, bool), \"'acceso_premium' debe ser un tipo Boolean.\"\n    assert acceso_premium == True, \"La evaluación lógica es incorrecta. Debería ser True: (True OR False) AND (NOT False) = True.\"\n    return \"✅ ¡Felicidades! Has combinado los operadores lógicos and, or, y not perfectamente.\"\n  except NameError as e:\n    return f\"❌ Error: Parece que una variable no está definida: {e}\"\n  except AssertionError as e:\n    return f\"❌ {str(e)}\"\n  except Exception as e:\n    return f\"❌ Error inesperado: {str(e)}\"\n\ncorrer_tests()\n",
       "hint": "Agrupa la primera condición (OR) entre paréntesis para asegurarte de que se evalúe primero: `(condición1 or condición2) and (not condición3)`.",
@@ -84,10 +84,10 @@
     {
       "id": "expresiones_declaraciones",
       "title": "Expresiones y declaraciones",
-      "description": "Una declaración realiza una acción (como imprimir o asignar). Una expresión es una parte de la declaración que el intérprete de Python evalúa dando como resultado un valor único.\n\nLa Expresión debe calcular el doble del `precio_base`.\nLa Declaración completa asigna el resultado a la variable `precio_total`.",
-      "defaultCode": "precio_base = 25\n\n# La Declaración de asignación completa es:\n",
-      "testHarness": "\ndef correr_tests():\n  try:\n    assert 'precio_total' in globals(), \"La variable 'precio_total' no está definida. Asegúrate de usar la variable 'precio_total'.\"\n    assert isinstance(precio_total, int) or isinstance(precio_total, float), \"El resultado debe ser un número (entero o decimal).\"\n    \n    # Verificación de valor\n    if precio_total != 50:\n        return f\"❌ Error: Se esperaba que el precio total fuera el doble de 25 (50), pero se obtuvo {precio_total}.\"\n\n    # Si pasa la prueba de valor y tipo\n    return \"✅ ¡Concepto Clave Dominado! La operación `precio_base * 2` es la Expresión, y la línea completa `precio_total = ...` es la Declaración.\"\n\n  except NameError as e:\n    return f\"❌ Error: Parece que una variable no está definida: {e}\"\n  except Exception as e:\n    return f\"❌ Error inesperado: {str(e)}\"\n\ncorrer_tests()\n",
-      "hint": "La Expresión debe ir a la derecha del signo igual (=) y debe calcular `precio_base` multiplicado por 2. La línea completa es la Declaración.",
+      "description": "Una declaración realiza una acción (como imprimir o asignar). Una expresión es una parte de la declaración que el intérprete de Python evalúa dando como resultado un valor único.\n\nLa expresión debe calcular el doble del `precio_base`.\nLa declaración completa asigna el resultado a la variable `precio_total`.",
+      "defaultCode": "precio_base = 25\n\n# La declaración de asignación completa es:\n",
+      "testHarness": "\ndef correr_tests():\n  try:\n    assert 'precio_total' in globals(), \"La variable 'precio_total' no está definida. Asegúrate de usar la variable 'precio_total'.\"\n    assert isinstance(precio_total, int) or isinstance(precio_total, float), \"El resultado debe ser un número (entero o decimal).\"\n    \n    # Verificación de valor\n    if precio_total != 50:\n        return f\"❌ Error: Se esperaba que el precio total fuera el doble de 25 (50), pero se obtuvo {precio_total}.\"\n\n    # Si pasa la prueba de valor y tipo\n    return \"✅ ¡Concepto Clave Dominado! La operación `precio_base * 2` es la expresión, y la línea completa `precio_total = ...` es la declaración.\"\n\n  except NameError as e:\n    return f\"❌ Error: Parece que una variable no está definida: {e}\"\n  except Exception as e:\n    return f\"❌ Error inesperado: {str(e)}\"\n\ncorrer_tests()\n",
+      "hint": "La expresión debe ir a la derecha del signo igual (=) y debe calcular `precio_base` multiplicado por 2. La línea completa es la declaración.",
       "solution": "precio_total = precio_base * 2"
     },
     {
@@ -130,10 +130,10 @@
       "id": "while_continue_saltar",
       "title": "Bucle while usando 'continue'",
       "description": "Usa un bucle `while` para iterar mientras la variable `contador` sea menor o igual a 5.\n\n Primero, incrementa `contador` en 1.\n Si `contador` es igual a 3, usa la palabra clave `continue` para saltar la suma.\n Los números que no se saltan deben sumarse a la variable `suma_final`.",
-      "defaultCode": "suma_final = 0\ncontador = 0\n\n# Bucle que se ejecuta de 1 a 5\nwhile\n    # 1. Incrementa el contador\n\n    \n    # 2. Si el contador es 3, salta la suma (continue)\n    if\n        continue\n\n    # 3. Suma el número a la variable final\n    suma_final += contador\n\n",
+      "defaultCode": "suma_final = 0\ncontador = 0\n\n# Bucle que se ejecuta mientras sea menor o igual a 5\nwhile\n    # 1. Incrementa el contador\n\n    \n    # 2. Si el contador es 3, salta la suma (continue)\n    if\n        continue\n\n    # 3. Suma el número a la variable final\n    suma_final += contador\n\n",
       "testHarness": "\ndef correr_tests():\n  try:\n    assert 'suma_final' in globals(), \"La variable 'suma_final' no está definida.\"\n    # El bucle suma 1 + 2 + (salta 3) + 4 + 5 = 12\n    assert suma_final == 12, f\"Resultado incorrecto. Se esperaba 12 pero se obtuvo {suma_final}. Revisa la condición de 'continue' y el incremento del contador.\"\n    \n    assert 'contador' in globals(), \"La variable 'contador' no está definida.\"\n    assert contador == 5, f\"El contador final es incorrecto. Se esperaba 5 pero se obtuvo {contador}.\"\n    \n    return \"✅ ¡Continue Dominado! El bucle while saltó el número 3 y luego continuó hasta el final.\"\n  except NameError as e:\n    return f\"❌ Error: Parece que una variable no está definida: {e}\"\n  except AssertionError as e:\n    return f\"❌ {str(e)}\"\n  except Exception as e:\n    return f\"❌ Error inesperado: {str(e)}\"\n\ncorrer_tests()\n",
       "hint": "La condición para el 'continue' debe ser `contador == 3`. En los bucles `while`, es crucial asegurar que la variable del bucle (`contador`) se actualice antes de cualquier `continue` para evitar un bucle infinito.",
-      "solution": "    if contador == 3:\n        continue\n\n    suma_final += contador"
+      "solution": "contador == 3"
     },
     {
       "id": "while_break_detener",
@@ -142,13 +142,13 @@
       "defaultCode": "suma_final = 0\ncontador = 0\n\n# Bucle que se ejecuta de 1 a 5\nwhile\n    # 1. Incrementa el contador\n\n    \n    # 2. Si el contador es 3, detiene el bucle (break)\n    if\n        break\n\n    # 3. Suma el número a la variable final\n    suma_final += contador\n\n",
       "testHarness": "\ndef correr_tests():\n  try:\n    assert 'suma_final' in globals(), \"La variable 'suma_final' no está definida.\"\n    # El bucle suma 1 + 2 y luego se detiene en 3. (1 + 2 = 3)\n    assert suma_final == 3, f\"Resultado incorrecto. Se esperaba 3 pero se obtuvo {suma_final}. Recuerda que 'break' detiene el bucle por completo, sin sumar el 3.\"\n    \n    assert 'contador' in globals(), \"La variable 'contador' no está definida.\"\n    # El contador debe detenerse en 3\n    assert contador == 3, f\"El contador final es incorrecto. Se esperaba 3 pero se obtuvo {contador}.\"\n    \n    return \"✅ ¡Break Dominado! El bucle while se detuvo inmediatamente al llegar a 3.\"\n  except NameError as e:\n    return f\"❌ Error: Parece que una variable no está definida: {e}\"\n  except AssertionError as e:\n    return f\"❌ {str(e)}\"\n  except Exception as e:\n    return f\"❌ Error inesperado: {str(e)}\"\n\ncorrer_tests()\n",
       "hint": "La condición para el 'break' debe ser `contador == 3`. La diferencia clave con 'continue' es que 'break' detiene el bucle por completo, ignorando las iteraciones restantes.",
-      "solution": "    if contador == 3:\n        break\n\n    suma_final += contador"
+      "solution": "contador == 3"
     },
     {
       "id": "funcion_definicion",
       "title": "Definición de una función",
       "description": "Define una función llamada `saludo_simple` que no acepte parámetros. Dentro de la función, usa `print()` para mostrar el mensaje: '¡Hola, Dev!'.",
-      "defaultCode": "# Define la función 'saludo_simple' aquí\n\n  # La llamada a la función se hace fuera del espacio de código\n",
+      "defaultCode": "# Define la función 'saludo_simple' aquí\n # La llamada a la función se hace fuera del espacio de código\n",
       "testHarness": "\ndef correr_tests():\n  import io\n  import sys\n  if 'saludo_simple' not in globals() or not callable(saludo_simple):\n    return \"❌ Error: La función 'saludo_simple' no está definida o no es una función.\"\n  \n  # Capturar salida para verificar el print\n  capturedOutput = io.StringIO()\n  sys.stdout = capturedOutput\n  saludo_simple()\n  sys.stdout = sys.__stdout__\n  \n  if '¡Hola, Dev!' not in capturedOutput.getvalue():\n    return \"❌ Error: La función no está imprimiendo el mensaje esperado: '¡Hola, Dev!'.\"\n    \n  return \"✅ ¡Éxito! Has definido la función 'saludo_simple' correctamente.\"\n\ncorrer_tests()\n",
       "hint": "Usa la palabra clave `def` seguida del nombre de la función y paréntesis `()`, terminando con dos puntos `:`. No olvides la indentación.",
       "solution": "def saludo_simple():\n    print(\"¡Hola, Dev!\")"
@@ -175,7 +175,7 @@
       "id": "funcion_uso_return",
       "title": "Uso de return",
       "description": "Define una función llamada `calcular_doble` que acepte un parámetro `numero`. La función debe devolver el doble de ese número, usando la palabra clave `return`.\n\nLuego, llama a la función con el argumento 10 y guarda el valor devuelto en la variable `resultado`.",
-      "defaultCode": "# Define la función 'calcular_doble' que devuelve (return) el doble de 'numero'\n\n\n# Llama a la función con el argumento 10 y guarda el resultado\nresultado = \n",
+      "defaultCode": "# Define la función 'calcular_doble' que devuelve (return) el doble de 'numero'\n\n\n# Llama a la función con el argumento 10 y guarda el resultado\n",
       "testHarness": "\ndef correr_tests():\n  if 'calcular_doble' not in globals() or not callable(calcular_doble):\n    return \"❌ Error: La función 'calcular_doble' no está definida.\"\n  \n  # Probar la función directamente\n  if calcular_doble(5) != 10:\n    return \"❌ Error: La función no devuelve el doble del número correctamente (debería ser 10).\n  \n  # Probar la asignación del valor de retorno\n  if 'resultado' not in globals():\n    return \"❌ Error: La variable 'resultado' no está definida.\"\n  \n  if resultado != 20:\n    return f\"❌ Error: Se esperaba que 'resultado' fuera 20 (el doble de 10) pero se obtuvo {resultado}.\n    \n  return \"✅ ¡Éxito! Has usado 'return' para devolver un valor de la función.\"\n\ncorrer_tests()\n",
       "hint": "Usa la palabra clave `return` seguida de la expresión que quieres que la función devuelva. El valor devuelto debe asignarse a la variable `resultado`.",
       "solution": "def calcular_doble(numero):\n    return numero * 2\n\nresultado = calcular_doble(10)"
