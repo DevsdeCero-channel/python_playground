@@ -31,7 +31,7 @@ const successMessages = [
   "¡Funciona! Eres imparable. Pero no te flipes que hay que seguir estudiando.",
   "¡Ni un fallo! No te relajes crack, se aprende más de los errores.",
   "Ha sido fácil, ¿verdad?",
-  "El código es poderoso en ti"
+  "El código es poderoso en ti."
 ];
 
 const getRandomSuccessMessage = () => {
