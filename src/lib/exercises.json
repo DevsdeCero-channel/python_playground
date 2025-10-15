@@ -102,11 +102,11 @@
     {
       "id": "bucle_while_contador",
       "title": "Bucle while",
-      "description": "Usa un bucle `while` para reducir la variable `contador` en 1 en cada iteración. El bucle debe ejecutarse mientras `contador` sea mayor que 0.\n\nAl final, la variable `mensaje` contendrá el valor final del `contador`.",
-      "defaultCode": "contador = 5\n\n# Escribe aquí la declaración completa del bucle while\n# y la operación de reducción.\n\n\n# La variable 'mensaje' guarda el valor final de contador\nmensaje = contador\n",
-      "testHarness": "\ndef correr_tests():\n  try:\n    assert 'contador' in globals(), \"La variable 'contador' no está definida.\"\n    assert contador == 0, f\"El contador final es incorrecto. Se esperaba 0 pero se obtuvo {contador}. Revisa la condición del bucle o la reducción.\"\n    assert 'mensaje' in globals(), \"La variable 'mensaje' no está definida.\"\n    assert mensaje == 0, \"El mensaje final debe contener el valor final del contador (0).\"\n    \n    return \"✅ ¡Bucle While completado! La cuenta regresiva terminó correctamente.\"\n  except NameError as e:\n    return f\"❌ Error: Parece que una variable no está definida: {e}\"\n  except AssertionError as e:\n    return f\"❌ {str(e)}\"\n  except Exception as e:\n    return f\"❌ Error inesperado: {str(e)}\"\n\ncorrer_tests()\n",
-      "hint": "La estructura del bucle es `while condicion:` seguido del código indentado. La condición debe ser `contador > 0` y el decremento es `contador -= 1`.",
-      "solution": "while contador > 0:\n    contador -= 1"
+      "description": "Completa el bucle `while`. Debe ejecutarse mientras `contador` sea mayor que 0. En cada iteración, se reducirá `contador` en 1.",
+      "defaultCode": "contador = 5\n\n# Escribe la condición del bucle\nwhile \n    # Reduce el contador en 1\n    contador -= 1\n\n# La variable 'mensaje' guarda el valor final de contador\nmensaje = contador\n",
+      "testHarness": "\ndef correr_tests():\n  try:\n    assert 'contador' in globals(), \"La variable 'contador' no está definida.\"\n    assert contador == 0, f\"El contador final es incorrecto. Se esperaba 0 pero se obtuvo {contador}. Revisa la condición del bucle.\"\n    assert 'mensaje' in globals(), \"La variable 'mensaje' no está definida.\"\n    assert mensaje == 0, \"El mensaje final debe contener el valor final del contador (0).\"\n    \n    return \"✅ ¡Bucle While completado! La cuenta regresiva terminó correctamente.\"\n  except NameError as e:\n    return f\"❌ Error: Parece que una variable no está definida: {e}\"\n  except AssertionError as e:\n    return f\"❌ {str(e)}\"\n  except Exception as e:\n    return f\"❌ Error inesperado: {str(e)}\"\n\ncorrer_tests()\n",
+      "hint": "La condición para el bucle es `contador > 0`.",
+      "solution": "contador > 0"
     },
     {
       "id": "bucle_for_concatenacion",
